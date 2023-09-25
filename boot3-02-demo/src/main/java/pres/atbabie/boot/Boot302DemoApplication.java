@@ -3,10 +3,7 @@ package pres.atbabie.boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import pres.atbabie.boot.bean.Cat;
-import pres.atbabie.boot.bean.Dog;
-import pres.atbabie.boot.bean.Sheep;
-import pres.atbabie.boot.bean.User;
+import pres.atbabie.boot.bean.*;
 
 
 @SpringBootApplication
@@ -32,22 +29,24 @@ public class Boot302DemoApplication {
 //       Object user02= ioc.getBean("user01");
 //        System.out.println(user01==user02);
 
-        for (String s : ioc.getBeanNamesForType(Cat.class)) {
-            System.out.println("cat:"+s);
-        }
-        for (String s : ioc.getBeanNamesForType(Dog.class)) {
-            System.out.println("dog:"+s);
-        }
-        for (String s : ioc.getBeanNamesForType(User.class)) {
-            System.out.println("user:"+s);
-        }
-
-
-        Cat cat=ioc.getBean(Cat.class);
-        System.out.println("cat:"+cat);
-
-        Sheep sheep = ioc.getBean(Sheep.class);
-        System.out.println(sheep);
+//        for (String s : ioc.getBeanNamesForType(Cat.class)) {
+//            System.out.println("cat:"+s);
+//        }
+//        for (String s : ioc.getBeanNamesForType(Dog.class)) {
+//            System.out.println("dog:"+s);
+//        }
+//        for (String s : ioc.getBeanNamesForType(User.class)) {
+//            System.out.println("user:"+s);
+//        }
+//
+//
+//        Cat cat=ioc.getBean(Cat.class);
+//        System.out.println("cat:"+cat);
+//
+//        Sheep sheep = ioc.getBean(Sheep.class);
+//        System.out.println(sheep);
+        Person bean = ioc.getBean(Person.class);
+        System.out.println(bean);
 
 
     }

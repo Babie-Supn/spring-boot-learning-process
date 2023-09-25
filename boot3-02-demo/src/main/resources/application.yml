@@ -1,0 +1,40 @@
+## 1.k: v # k v 之间是空格区分
+##2.属性之间有层级关系，使用下一行，空两个空格
+##只要左侧对齐，就代表同一层级的
+##3.优：层级分明
+#server:
+#  port: 8080
+#
+#spring:
+#  data:
+#    redis:
+#      port:
+#      host:
+#  servlet:
+#    multipart:
+sheep:
+  age: 11
+---
+person:
+  age: 20
+  name: 余舒萍
+  birth-day: 2003/10/09
+  like: true
+  child:
+    name: 陈奕乐
+    age: 20
+    birthday: 2003/07/14
+    text: ["abc","def"]
+
+#       text:["abc","def"]
+
+  dogs:
+    - name: 小黑
+      eating: true
+    - name: 小白
+      eating: false
+  cats:
+    c1:
+      name: 皮皮
+      age: 1
+    c2: {name: 蛋蛋,age: 1}

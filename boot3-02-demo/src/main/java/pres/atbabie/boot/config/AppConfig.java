@@ -15,6 +15,7 @@ import pres.atbabie.boot.bean.User;
  *
  */
 @EnableConfigurationProperties(Sheep.class)
+
 /**
  * 1.开启sheep组件的属性绑定
  * 2.默认会把这个组件自己放到容器中
