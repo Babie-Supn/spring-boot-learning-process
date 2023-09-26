@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 public class HelloController {
-   Logger logger= LoggerFactory.getLogger(getClass());
+//   Logger logger= LoggerFactory.getLogger(getClass());
     @GetMapping("/hello")
     private String hello(){
 
