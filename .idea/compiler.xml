@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-annotation" />
+        <module name="boot3-04-web" />
         <module name="boot3-01-demo" />
         <module name="boot3-03-logging" />
         <module name="boot3-02-demo" />
@@ -19,6 +20,7 @@
       <module name="boot3-01-demo" options="-parameters" />
       <module name="boot3-02-demo" options="-parameters" />
       <module name="boot3-03-logging" options="-parameters" />
+      <module name="boot3-04-web" options="-parameters" />
       <module name="spring-annotation" options="-parameters" />
     </option>
   </component>

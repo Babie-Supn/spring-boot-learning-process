@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 //   Logger logger= LoggerFactory.getLogger(getClass());
-    @GetMapping("/hello")
+    @GetMapping("/hello") //如果是/hello/** 代表此方法处理/hello 及以后所有路径的请求 可以实现WebMvcConfigurer 的configurePathMatch方法来调整
     private String hello(){
 
         log.trace("trace 日志");
