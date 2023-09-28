@@ -1,5 +1,10 @@
 package pres.atbabie.controller;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,5 +42,18 @@ public class HelloController {
     @GetMapping("/person")
     public Person person(){
         return new Person("蛋蛋", 2);
+    }
+
+    public static void main(String[] args) throws JsonProcessingException {
+        Person person = new Person("蛋蛋", 2);
+
+        //如果不想要开头的三条标记线，可以在Yaml工厂里禁用
+        YAMLFactory factory = new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER);
+
+        ObjectMapper objectMapper = new ObjectMapper(factory);
+        String s = objectMapper.writeValueAsString(person);
+        System.out.println(s);
+
+
     }
 }

@@ -36,6 +36,40 @@ SpringBoot多端内容适配
 spring.mvc.contentnegotiation.favor-parameter=true  
 #修改请求参数的内容协商的参数 修改为type
 spring.mvc.contentnegotiation.parameter-name=type  
+`HttpMessageConverter`:内容协商原理  
+  ·编写 `WebMvcConfigurer` 提供的 `configureMessageConverter`底层方法，修改底层的MessageConverter  
+ 
+
+1.如果controller方法的返回值标注了 @ResponseBody 注解
+   1.1. 请求进来先来到DispatcherServlet的doDispatch()进行处理  
+   1.2. 找到一个 HandlerAdapter 适配器。利用适配器执行目标方法  
+   1.3. RequestMappingHandlerAdapter来执行，调用`invokeHandlerMethod（）`来执行目标方法  
+   1.4. 目标方法执行之前，准备好两个东西  
+   1.4.1. `HandlerMethodArgumentResolver`：参数解析器，确定目标方法每个参数值  
+   1.4.2.` HandlerMethodReturnValueHandler`：返回值处理器，确定目标方法的返回值改怎么处理  
+   1.5. `RequestMappingHandlerAdapter` 里面的`invokeAndHandle()`真正执行目标方法  
+   1.6. 目标方法执行完成，会返回返回值对象  
+   1.7. 找到一个合适的返回值处理器 `HandlerMethodReturnValueHandler  `
+   1.8. 最终找到` RequestResponseBodyMethodProcessor`能处理 标注了` @ResponseBody`注解的方法  
+   1.9. `RequestResponseBodyMethodProcessor `调用`writeWithMessageConverters `,利用`MessageConverter`把返回值写出去  
+以上解释了：`@ResponseBody`由`HttpMessageConverter`处理  
+· 先进行内容协商，查看客户期望的最终类型 类json/xml/html...  
+ a-遍历所有的`MessageConverter`看谁支持这种内容类型的数据  
+ b-默认的`MessageConverter`（消息转换器）有8种  可以添加对应的依赖包，而添加更多内容协商功能
+ c-
+  
+
+
+
+
+
+
+
+
+
+
+`406`:代表内容适配不了  
+
 
 
 
