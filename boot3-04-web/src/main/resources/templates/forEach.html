@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>这里是forEach页面哦</p>
+<div th:insert="~{common ::myHeader}"></div>
+<table style="border:solid 1px pink ; width: auto;height: auto; " >
+    <tr>
+        <th>名字</th>
+        <th>年龄</th>
+        <th>状态信息</th>
+    </tr>
+
+    <tr th:each="list,stats : ${lists}">
+        <td th:text="${list.name}"></td>
+        <td th:text="${list.age}"></td>
+        <td>
+            index:[[${stats.index}]]<br>
+            count:[[${stats.count}]]<br>
+            size:总数量：[[${stats.size}]]<br>
+            current(当前正在遍历的对象):[[${stats.current}]]<br>
+            even(true)/odd(false):[[${stats.even}]]<br>
+            first:[[${stats.first}]]<br>
+            last:[[${stats.last}]]
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>

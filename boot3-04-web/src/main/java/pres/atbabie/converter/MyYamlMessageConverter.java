@@ -19,7 +19,7 @@ public class MyYamlMessageConverter extends AbstractHttpMessageConverter<Object>
     private ObjectMapper objectMapper=null;
 
     public MyYamlMessageConverter() {
-        super(new MediaType("application", "yaml", Charset.forName("UTF-8")));
+        super(new MediaType("text", "yaml", Charset.forName("UTF-8")));
         //怎么让springmvc知道我们支持yaml语法
 //        MediaType mediaType = new MediaType("application", "yaml", Charset.forName("UTF-8"));
         //告诉springboot这个MessageConverter支持哪种媒体类型

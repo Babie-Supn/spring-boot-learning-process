@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:fragment="myHeader">
+<!--    thymeleaf会自动根据语言环境，去找对应的配置文件取key-->
+    <button type="button" th:text="#{login}" th:width="50px" th:height="30px"></button>
+    <button type="button" th:text="#{sign}" th:width="50px" th:height="30px"></button>
+</header>
+
+</body>
+</html>

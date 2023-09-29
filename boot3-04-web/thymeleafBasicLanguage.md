@@ -83,7 +83,11 @@ Thymeleaf属性优先级:
  `片段`>`遍历`>`判断`  
 片段：`th:insert`、` th:replace`  
 遍历:`th:each`  
-判断:`th:if`、`th:unless`、`th:switch`、`th:case`
+判断:`th:if`、`th:unless`、`th:switch`、`th:case`  
+
+
+抽取：`th:fragment`：可以将一些页面公共会重复的部分，（像头部索引栏）抽取出来，就可以通过片段直接插入或替换  
+
  
 
 

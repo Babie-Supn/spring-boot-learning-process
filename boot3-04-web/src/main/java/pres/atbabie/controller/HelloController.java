@@ -6,12 +6,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import pres.atbabie.bean.Person;
 
-@RestController
+import java.util.Locale;
+
+@RestController//这个适配前后端分离
 public class HelloController {
     /**
      * 默认使用新版的PathPatternParse 进行路径匹配
@@ -41,19 +45,30 @@ public class HelloController {
      */
     @GetMapping("/person")
     public Person person(){
+
         return new Person("蛋蛋", 2);
     }
 
-    public static void main(String[] args) throws JsonProcessingException {
-        Person person = new Person("蛋蛋", 2);
+//    public static void main(String[] args) throws JsonProcessingException {
+//        Person person = new Person("蛋蛋", 2);
+//
+//        //如果不想要开头的三条标记线，可以在Yaml工厂里禁用
+//        YAMLFactory factory = new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER);
+//
+//        ObjectMapper objectMapper = new ObjectMapper(factory);
+//        String s = objectMapper.writeValueAsString(person);
+//        System.out.println(s);
+//
+//
+//    }
+    @Autowired
+    MessageSource messageSource;
 
-        //如果不想要开头的三条标记线，可以在Yaml工厂里禁用
-        YAMLFactory factory = new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER);
-
-        ObjectMapper objectMapper = new ObjectMapper(factory);
-        String s = objectMapper.writeValueAsString(person);
-        System.out.println(s);
-
-
+    @GetMapping("/haha")
+    public String hah(HttpServletRequest request){
+        Locale locale = request.getLocale();
+        //利用代码方式获取国际化配置文件中指定的配置项的值
+        String login = messageSource.getMessage("login", null, locale);
+        return login;
     }
 }

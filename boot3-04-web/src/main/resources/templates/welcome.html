@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:insert="~{common :: myHeader}"></div>
+<a th:href="@{/list}">去列表页</a>
+<p>你好<span th:text="${msg}"></span> 这里是welcome.html</p>
+<img th:src="${imgUrl}" width="200px" height="200px"/>
+<p>再见<span th:text="${#strings.toUpperCase(msg)}"></span> 这里是welcome.html</p>
+</body>
+</html>
