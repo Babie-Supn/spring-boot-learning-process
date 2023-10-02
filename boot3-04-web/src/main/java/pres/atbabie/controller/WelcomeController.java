@@ -1,6 +1,8 @@
 package pres.atbabie.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -8,20 +10,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pres.atbabie.bean.Person;
+import pres.atbabie.service.Aservice;
 
 import java.util.Arrays;
 import java.util.List;
 
 @Controller  //这个适配服务端渲染 前后不分离
 public class WelcomeController {
-
+    @Autowired
+    Aservice aservice;
     /**
      * 利用模板引擎跳转到指定页面
      * @return
      */
     @GetMapping("/well")
-    public String hello(@RequestParam("name") String name, Model model){
+    public String hello(@RequestParam("name") String name, Model model, HttpServletRequest request){
 
+   aservice.b();
         //和javaweb里的viewBaseServlet 功能对应
         //模板逻辑视图名
         //物理视图 = 前缀 + 后缀

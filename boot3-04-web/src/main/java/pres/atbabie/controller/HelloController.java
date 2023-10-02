@@ -64,6 +64,7 @@ public class HelloController {
     @Autowired
     MessageSource messageSource;
 
+
     @GetMapping("/haha")
     public String hah(HttpServletRequest request){
         Locale locale = request.getLocale();
@@ -71,4 +72,5 @@ public class HelloController {
         String login = messageSource.getMessage("login", null, locale);
         return login;
     }
+
 }

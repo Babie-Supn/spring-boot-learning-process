@@ -57,7 +57,8 @@ DefaultErrorViewResolver
 
 ****·前后分离****  
   **后台发生的所有错误**，`@ControllerAdvice + @ExceptionHandler`进行统一异常处理。  
-**·服务端页面渲染**  
+**·服务端页面渲染**    
+不可预知的一些，HTTP码表示的服务器或客户端错误  
 给`classpath:/templates/error/`下面，放常用精确的错误码页面。`500.html`,`400.html`  
 给`classpath:/templates/error/`下面，放常用模糊的错误码页面。`5xx.html`,`4xx.html`  
 发生业务错误  

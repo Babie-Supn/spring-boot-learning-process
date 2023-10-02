@@ -57,7 +57,32 @@ spring.mvc.contentnegotiation.parameter-name=type
  a-遍历所有的`MessageConverter`看谁支持这种内容类型的数据  
  b-默认的`MessageConverter`（消息转换器）有8种  可以添加对应的依赖包，而添加更多内容协商功能
  c-
+
+
+---
+
+SpringBoot默认嵌入Tomcat作为Servlet容器  
+**自动配置类**是`ServletWebServerFactoryAutoConfiguration`,`EmbeddedWebServerFactoryCustomizerAutoConfiguration`  
+自动配置类:`xxxAutoConfiguration`  
+
+用法：  
+·修改`server`下相关配置就可以修改服务器参数  
+·通过给容器中放一个`servletWebServerFactory`,来禁用掉SpringBoot默认放的服务器工厂，实现自定义嵌入**任意服务器**  
+
+
+视图解析器：`BeanNameViewResolver`,视图名（controller方法的返回值字符串）就是组件名  
   
+开启ProblemDetails返回, 使用新的MediaType  
+Content-Type: application/problem+json+ 额外扩展返回  
+```java
+{
+"type": "about:blank",
+"title": "Method Not Allowed",
+"status": 405,
+"detail": "Method 'POST' is not supported.",
+"instance": "/list"
+}
+ ```
 
 
 

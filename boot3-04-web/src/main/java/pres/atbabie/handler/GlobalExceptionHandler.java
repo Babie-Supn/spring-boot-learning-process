@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
      * @param e
      * @return
      */
-    @ResponseBody
+    @ResponseBody //对象写出为json
     @ExceptionHandler(Exception.class)
     public String handlerException(Exception e){
         return "这是我们的统一处理错误操作，错误原因是："+e.getMessage();
